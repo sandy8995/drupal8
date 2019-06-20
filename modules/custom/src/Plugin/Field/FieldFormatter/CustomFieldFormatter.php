@@ -1,5 +1,7 @@
 <?php
 
+/*Defining the namespaces */
+
 namespace Drupal\custom\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FormatterBase;
@@ -23,6 +25,7 @@ class CustomFieldFormatter extends FormatterBase {
 
     /**
      * {@inheritdoc}
+     * Implement The Settings Form which appears infront of formatter in Manage Display screen
      */
     public function settingsSummary() {
         $summary = [];
@@ -32,12 +35,15 @@ class CustomFieldFormatter extends FormatterBase {
 
     /**
      * {@inheritdoc}
+     * Displaying And Rendering Data (In this method we can retrieve data and render data.)
+     * @items contains the string value of plain text 
      */
     public function viewElements(FieldItemListInterface $items, $langcode) {
         $element = [];
         foreach ($items as $delta => $item) {
             // Render each element as markup.
             $revisedString = str_replace(" ", "+", $item->value);
+            //curl for getting the very first record from Giphy
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
@@ -48,6 +54,7 @@ class CustomFieldFormatter extends FormatterBase {
             $url = $result['data'][0]['images']['fixed_width']['url'];
             $element[$delta] = ['#markup' => $url];
         }
+        //output
         return $element;
     }
 

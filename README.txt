@@ -7,7 +7,25 @@ CONTENTS OF THIS FILE
  * Installation profiles
  * Appearance
  * Developing for Drupal
- * More information
+ * Implimentation of Custom Field Formatter
+ * Image crop module
+
+Set for Custom Field Formatter
+------------
+
+First we have to create a content type which includes (Title, Body, Image, Text(Plain text))
+Then go to the manage field and select where you want to use custom field formatter in format column
+After doing this step: add content and choose the content type, save it you can now see the changes in your view
+
+Set Up for Image Crop
+---------------------
+Below are the plugins which are needed to be there:
+* crop
+* image_widget_crop
+
+GO to configuration file under Media section select crop types and add crop type (In this module we have used 16:9 crop ratio)
+then go to Image style link, add image style here we have added "Crop Image Style 16:9". You will see a select option dropdown "Select a new effect" here you have to choose Manual Crop if you want user to crop the image himself/herself.
+Then go back to content type which you have created earlier. After clicking on manage field you will see a tab "Manage From Display" here you will need to select your crop image module click on the drop drop in Widget Column and select your created crop setting, then go to setting icon on right hand side where you have to select your Crop Type and save it. After that go to Manage Display select the field of IMAGE in Format Column click on the setting icon in which you have to select Image style which you have created on "Image styles LINK" and save it.
 
 ABOUT DRUPAL
 ------------

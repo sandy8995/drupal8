@@ -1,5 +1,0 @@
-name: formatter
-type: module
-description: Collection of general formatters that display a single field from the referenced entity.
-core: 8.x
-package: Custom

@@ -3,11 +3,3 @@
 /**
  * Implements hook_theme().
  */
-function formatter() {
-  return array(
-    'formatter' => array(
-      'variables' => array('url' => NULL),
-      'template' => 'formatter',
-    ),
-  );
-}
